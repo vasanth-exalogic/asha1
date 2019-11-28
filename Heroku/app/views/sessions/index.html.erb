@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Login</title>
+    <style type="text/css">
+        .my_centered_buttons { display: flex; justify-content: center; }
+    </style>
+  </head>
+  <body>
+    <div class="forms">
+        <br>
+        <form action="/sessions" method="post">
+              <h1><b>Login</b></h1>
+              <div class="input-field">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label for="email">Email</label>
+                <input type="email" name="user[email]" required="email" />
+                <label for="password">Password</label>
+                <input type="password" name="user[password]" required/>
+                <span><%= @login_error %></span>
+                <input type="submit" value="Login" class="button"/><br>
+              </div>
+          </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div class="header">
+      <% if session[:type]=='admin' %>
+          <a class="logo" href="/admins"><img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" alt="Exalogic"></a>
+          <div class="header-right">
+          <a href="/admins">Home</a>
+          <%= link_to "Create User", new_admin_path%>
+      <% else %>
+          <a class="logo" href="#"><img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" alt="Exalogic"></a>
+          <div class="header-right">
+          <a href="#" class="active">Home</a>
+      <% end %>
+      <%= link_to "Logout", logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    </div>
+      <fieldset>
+        <legend><strong>USER DETAILS</strong></legend>
+        <table class="w3-table w3-striped w3-border">
+          <tr>
+            <td><b>First Name</b></td>
+            <td><%= @user.fname%></td>
+            <td><b>Last Name</b></td>
+            <td><%= @user.lname%></td>
+          </tr>
+          <tr>
+            <td><b>Date of Birth</b></td>
+            <td><%= @user.datebirth%></td>
+            <td><b>Age</b></td>
+            <td><span><%= ((Date.today-@user.datebirth.to_date)/365).to_i%></span></td>
+          </tr>
+          <tr>
+            <td><b>Date of Joining</b></td>
+            <td><%= @user.datejoining%></td>
+            <td><b>Blood Type</b></td>
+            <td><%= @user.bloodtype%></td>
+          </tr>
+          <tr>
+            <td><b>Salary per annum</b></td>
+            <% unless @user.sal==nil%>
+              <td><%= @user.sal.to_i%></td>
+            <% else%>
+              <td></td>
+            <% end%>
+            <td><b>Salary per month</b></td>
+            <td><span><%= (@user.sal/12).to_i%></span></td>
+          </tr>
+          <tr>
+            <td><b>Contact</b></td>
+            <% unless @user.contact==nil%>
+              <td><%= @user.contact%></td>
+            <% else%>
+              <td></td>
+            <% end%>
+            <td><b>Email</b></td>
+            <td><%= @user.email%></td>
+          </tr>
+          <tr>
+            <td><b>Address</b></td>
+            <td><%= @user.address%></td>
+            <td><b>City</b></td>
+            <td><%= @user.city%></td>
+          </tr>
+          <tr>
+            <td><b>State</b></td>
+            <td><%= @user.state%></td>
+            <td><b>Country</b></td>
+            <td><%= @user.country%></td>
+          </tr>
+          <tr>
+            <td><b>Pincode</b></td>
+            <% unless @user.pincode==nil%>
+              <td><%= @user.pincode.to_i%></td>
+            <% else%>
+              <td></td>
+            <% end%>
+            <td><b>Gender</b></td>
+            <td><%= @user.gender%></td>
+          </tr>
+          <tr>
+            <td><b>Emergency Contact Name</b></td>
+            <td><%= @user.ename%></td>
+            <td><b>Relation</b></td>
+            <td><%= @user.relation%></td>
+          </tr>
+          <tr>
+            <td><b>Emergency Contact Number</b></td>
+            <% unless @user.econtact==nil%>
+              <td><%= @user.econtact%></td>
+            <% else%>
+              <td></td>
+            <% end%>
+            <td><b>Primary Skill</b></td>
+            <td><%= @user.pskill%></td>
+          </tr>
+          <tr>
+            <td><b>Secondary Skill 1</b></td>
+            <td><%= @user.sskill%></td>
+            <td><b>Secondary Skill 2</b></td>
+            <td><%= @user.sskill2%></td>
+          </tr>
+          <tr>
+            <td><b>Notice period in days</b></td>
+            <% unless @user.notice==nil%>
+              <td><%= @user.notice.to_i%></td>
+            <% else%>
+              <td></td>
+            <% end%>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <% if session[:type]=='admin' %>
+            <%= link_to "Edit User", edit_user_path(@user), :class => 'link'%>
+        <% end %>
+      </fieldset>
+  </body>
+</html>

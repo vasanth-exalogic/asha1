@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div class="header">
+    <a class="logo" href="/users"><img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" alt="Exalogic"></a>
+    <div class="header-right">
+      <a href="/users">Home</a>
+      <%= link_to "Create User", new_user_path%>
+      <%= link_to "Logout", logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    </div>
+    <fieldset>
+      <legend><strong><h4>EDIT USERS</h4></strong></legend>
+      <span><%= @error4%></span>
+      <%= render "form"%>
+    </fieldset>
+  </body>
+</html>

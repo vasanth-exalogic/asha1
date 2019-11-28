@@ -1,0 +1,93 @@
+<%= form_for @user do |f|%>
+<span><%= @create_error%></span>
+<table class="w3-table w3-striped w3-border">
+  <tr>
+    <td><%= f.label "First Name"%></td>
+    <td><%= f.text_field :fname%></td>
+    <td><%= f.label "Last Name"%></td>
+    <td><%= f.text_field :lname%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Date of Birth"%></td>
+    <td><%= f.date_field :datebirth%></td>
+    <td><%= f.label :age%></td>
+    <td><%= f.number_field :age%></td>
+
+  </tr>
+  <tr>
+    <td><%= f.label "Date of Joining"%></td>
+    <td><%= f.date_field :datejoining%></td>
+    <td><%= f.label "Blood Type"%></td>
+    <td><%= f.select :bloodtype, ['AB+','AB-','A+','A-','B+','B-','O+','O-']%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Salary per annum"%></td>
+    <td><%= f.number_field :sal%></td>
+    <td><%= f.label "Salary per month"%></td>
+    <td><%= f.number_field :salpm%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :contact%></td>
+    <td><%= f.number_field :contact%></td>
+    <td><%= f.label "Gender"%></td>
+    <td><%= f.select :gender, ['Male','Female']%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address%></td>
+    <td><%= f.text_area :address, :rows => 1%></td>
+    <td><%= f.label :city%></td>
+    <td><%= f.text_field :city%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :state%></td>
+    <td><%= f.text_field :state%></td>
+    <td><%= f.label :country%></td>
+    <td><%= f.select :country, ['India']%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Pincode"%></td>
+    <td><%= f.number_field :pincode%></td>
+    <td><%= f.label "Notice period in days"%></td>
+    <td><%= f.number_field :notice%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Emergency Contact Name"%></td>
+    <td><%= f.text_field :ename%></td>
+    <td><%= f.label "Relation"%></td>
+    <td><%= f.select :relation, ['Parent','Spouse','Friend','Others']%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Emergency Contact Number"%></td>
+    <td><%= f.number_field :econtact%></td>
+    <td><%= f.label "Primary Skill"%></td>
+    <td><%= f.text_field :pskill%></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Secondary Skill 1"%></td>
+    <td><%= f.text_field :sskill%></td>
+    <td><%= f.label "Secondary Skill 2"%></td>
+    <td><%= f.text_field :sskill2%></td>
+  </tr>
+  <tr>
+    <td colspan="4"><label><h3><b>LOGIN DETAILS</b></h3></label></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email%></td>
+    <td><%= f.email_field :email%></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= f.label :password%></td>
+    <td><%= f.password_field :password%></td>
+    <td><%= f.label :"Confirm Password"%></td>
+    <td><%= f.password_field :password_confirmation%></td>
+  </tr>
+  <tr>
+    <td><%= f.submit%></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<% end%>

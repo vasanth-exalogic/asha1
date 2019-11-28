@@ -1,0 +1,23 @@
+<form action="/admins" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <table class="w3-table w3-striped w3-border">
+    <tr>
+      <td colspan="4"><label><h4>LOGIN DETAILS</h4></label></td>
+    </tr>
+    <tr>
+      <td><strong><label>Email</label></strong></td>
+      <td><input type="email" name="user[email]"></td>
+      <td><strong><label>Role</label></strong></td>
+      <td><input type="radio" name="user[role]" value="user" checked> User
+          <input type="radio" name="user[role]" value="admin"> Admin</td>
+    </tr>
+    <tr>
+      <td><strong><label>Password</label></strong></td>
+      <td><input type="password" name="user[password]"></td>
+      <td><strong><label>Confirm Password</label></strong></td>
+      <td><input type="password" name="user[password_confirmation]"></td>
+    </tr>
+  </table>
+  <input type="submit" name="submit" value="Submit">
+  <input type="reset" name="reset" value="Reset">
+</form>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div class="header">
+    <a class="logo" href="#"><img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" alt="Exalogic"></a>
+    <div class="header-right">
+      <a class="active" href="#">Home</a>
+      <%= link_to "Create User", new_user_path%>
+      <%= link_to "Logout", logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    </div>
+        <fieldset>
+          <legend><strong><h3>ALL USERS</h3></strong></legend>
+          <table class="w3-table w3-striped w3-border">
+            <thead>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email id</th>
+              <th>Contact</th>
+              <th>Primary Skill</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
+            <% @users.each do |user|%>
+              <tr>
+                <td><%= user.fname%></td>
+                <td><%= user.lname%></td>
+                <td><%= user.email%></td>
+                <td><%= user.contact.to_i%></td>
+                <td><%= user.pskill%></td>
+                <td><%= link_to "Show User", user, :class => "link"%></td>
+                <td><%= link_to "Edit User", edit_user_path(user), :class => "link"%></td>
+                <td><%= link_to "Delete User", user_path(user), method: :delete, data: { confirm: "Are you sure?"}, :class => "link"%></td>
+              </tr>
+            <% end %>
+          </table>
+        </fieldset>
+  </body>
+</html>
